@@ -14,6 +14,7 @@ class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
 	TStringGrid *StringGrid1;
+	TTimer *Timer1;
 	TEdit *Edit1;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Edit1KeyPress(TObject *Sender, System::WideChar &Key);
@@ -21,6 +22,7 @@ __published:	// IDE-managed Components
 	void __fastcall Edit1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall StringGrid1KeyPress(TObject *Sender, System::WideChar &Key);
+	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall FormKeyPress(TObject *Sender, System::WideChar &Key);
 private:	// User declarations
 public:		// User declarations

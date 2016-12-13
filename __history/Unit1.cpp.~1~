@@ -195,6 +195,12 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 {
+	if(Key==13)
+		{
+			Say=Edit1->Text;
+			n_Say=Say.Length();
+			Sr(Say,n_Say);
+		}
 	if(Key==VK_ESCAPE)
 		{
 			Edit1->Clear();
@@ -243,6 +249,32 @@ void __fastcall TForm1::StringGrid1KeyPress(TObject *Sender, System::WideChar &K
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::Timer1Timer(TObject *Sender)
+{
+	sec-=1;
+	if(sec<=0)
+		{
+			//keybd_event(VK_MENU, 0,0,0);  //Ctrl
+
+
+			keybd_event(VK_NUMPAD0, 0,0,0);  //V
+			keybd_event(VK_NUMPAD0, 0,KEYEVENTF_KEYUP,0);
+
+			keybd_event(VK_NUMPAD1, 0,0,0);  //V
+			keybd_event(VK_NUMPAD1, 0,KEYEVENTF_KEYUP,0);
+
+			keybd_event(VK_NUMPAD9, 0,0,0);  //V
+			keybd_event(VK_NUMPAD9, 0,KEYEVENTF_KEYUP,0);
+
+			keybd_event(VK_NUMPAD2, 0,0,0);  //V
+			keybd_event(VK_NUMPAD2, 0,KEYEVENTF_KEYUP,0);
+
+
+			//keybd_event(VK_MENU, 0,KEYEVENTF_KEYUP,0);
+			Timer1->Enabled=false;
+		}
+}
+//---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormKeyPress(TObject *Sender, System::WideChar &Key)
 {
